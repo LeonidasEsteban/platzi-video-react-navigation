@@ -5,7 +5,7 @@ import { store, persistor } from './store';
 
 import Loading from './src/sections/components/loading';
 import AppLayout from './src/app';
-
+import AppNavigatorWithState from './src/app-navigator-with-state';
 type Props = {};
 export default class App extends Component<Props> {
   render() {
@@ -17,7 +17,7 @@ export default class App extends Component<Props> {
           loading={<Loading />}
           persistor={persistor}
         >
-          <AppLayout />
+          <AppNavigatorWithState />
         </PersistGate>
       </Provider>
     );
