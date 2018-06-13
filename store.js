@@ -17,7 +17,7 @@ import {
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['selectedMovie']
+  blacklist: ['navigation']
 }
 
 
