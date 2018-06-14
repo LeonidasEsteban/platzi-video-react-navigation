@@ -9,8 +9,20 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
+import { connect } from 'react-redux';
 
 class Login extends Component {
+  handleLogin = () => {
+    const token = 'ABCDEFGHIJK';
+    this.props.dispatch({
+      type: 'SET_USER',
+      payload: {
+        token,
+        username: 'LeonidasEsteban'
+      }
+    })
+    this.props.navigation.navigate('Loading');
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -77,4 +89,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Login
+export default connect(null)(Login)

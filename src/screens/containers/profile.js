@@ -26,13 +26,20 @@ class Profile extends Component {
   componentWillUnmount() {
     this.focus.remove();
   }
+  handleLogout = () => {
+    this.props.dispatch({
+      type: 'REMOVE_USER',
+    })
+    this.props.navigation.navigate('Loading');
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Nombre de usuario</Text>
+        <Text>{this.props.user.username}</Text>
         <Button
           title="Cerrar sesión"
           color="#67a52e"
+          onPress={this.handleLogout}
         />
       </SafeAreaView>
     )
@@ -47,5 +54,11 @@ const styles = StyleSheet.create({
   }
 })
 
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
 
-export default Profile
+
+export default connect(mapStateToProps)(Profile)
