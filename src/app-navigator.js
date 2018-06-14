@@ -18,12 +18,14 @@ import Icon from './sections/components/icon';
 const Main = createStackNavigator(
   {
     Home: Home,
-    Movie: Movie,
     Category
   },
   {
     navigationOptions: {
       header: Header,
+    },
+    cardStyle: {
+      backgroundColor: 'white'
     }
   }
 )
@@ -55,9 +57,28 @@ const TabNavigator = createBottomTabNavigator(
   }
 )
 
+const WithModal = createStackNavigator(
+  {
+    Main: {
+      screen: TabNavigator
+    },
+    Movie: Movie,
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+    cardStyle: {
+      backgroundColor: 'white'
+    },
+    navigationOptions: {
+      gesturesEnabled: true,
+    }
+  }
+)
+
 const SwitchNavigator = createSwitchNavigator(
   {
-    App: TabNavigator,
+    App: WithModal,
     Login: Login,
     Loading: Loading,
   },
