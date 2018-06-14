@@ -15,6 +15,7 @@ import Lucky from './screens/containers/lucky';
 import Loading from './screens/containers/loading';
 import Login from './screens/containers/login';
 import Icon from './sections/components/icon';
+import DrawerComponent from './sections/components/drawer';
 
 const Main = createStackNavigator(
   {
@@ -98,6 +99,7 @@ const DrawerNavigator = createDrawerNavigator(
   {
     drawerWidth: 200,
     drawerBackgroundColor: '#f6f6f6',
+    contentComponent: DrawerComponent,
     contentOptions: {
       activeBackgroundColor: '#7aba2f',
       activeTintColor: 'white',
