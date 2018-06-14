@@ -9,6 +9,7 @@ import AppNavigatorWithState from './src/app-navigator-with-state';
 type Props = {};
 export default class App extends Component<Props> {
   render() {
+    console.disableYellowBox = true;
     return (
       <Provider
         store={store}
