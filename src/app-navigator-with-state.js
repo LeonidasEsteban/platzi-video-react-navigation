@@ -4,11 +4,16 @@ import AppNavigator from './app-navigator';
 import {
   createReduxBoundAddListener,
   initializeListeners,
+  createDidUpdateCallback,
 } from 'react-navigation-redux-helpers';
 
 const addListener = createReduxBoundAddListener('root');
+const didUpdate = createDidUpdateCallback('root');
 
 class AppNavigatorWithState extends Component {
+  componentDidUpdate() {
+    return didUpdate();
+  }
   componentDidMount() {
     initializeListeners('root', this.props.navigation);
   }

@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Button,
+  StatusBar,
 } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from '../../sections/components/icon';
@@ -15,6 +16,15 @@ class Profile extends Component {
       title: 'Perfil',
       tabBarIcon: <Icon icon="😎" />
     }
+  }
+  componentDidMount() {
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    });
+  }
+  componentWillUnmount() {
+    this.focus.remove();
   }
   render() {
     return (

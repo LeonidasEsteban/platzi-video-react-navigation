@@ -15,6 +15,15 @@ class Lucky extends Component {
       tabBarIcon: <Icon icon="⭐️" />
     }
   }
+  componentDidMount() {
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    });
+  }
+  componentWillUnmount() {
+    this.focus.remove();
+  }
   render() {
     return (
       <View style={styles.container}>
