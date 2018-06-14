@@ -5,8 +5,15 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import Icon from '../../sections/components/icon';
 
 class About extends Component {
+  static navigationOptions = () => {
+    return {
+      title: 'Sobre esta app',
+      tabBarIcon: <Icon icon="🤓" />
+    }
+  }
   render() {
     return (
       <View style={styles.container}>

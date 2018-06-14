@@ -6,8 +6,15 @@ import {
   StatusBar,
 } from 'react-native';
 import Search from '../../sections/containers/search';
+import Icon from '../../sections/components/icon';
 
 class Lucky extends Component {
+  static navigationOptions = () => {
+    return {
+      title: 'Voy a tener suerte',
+      tabBarIcon: <Icon icon="⭐️" />
+    }
+  }
   render() {
     return (
       <View style={styles.container}>

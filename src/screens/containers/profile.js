@@ -7,8 +7,15 @@ import {
   Button,
 } from 'react-native';
 import { connect } from 'react-redux';
+import Icon from '../../sections/components/icon';
 
 class Profile extends Component {
+  static navigationOptions = () => {
+    return {
+      title: 'Perfil',
+      tabBarIcon: <Icon icon="😎" />
+    }
+  }
   render() {
     return (
       <SafeAreaView style={styles.container}>
