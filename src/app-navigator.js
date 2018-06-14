@@ -2,6 +2,7 @@ import {
   createStackNavigator,
   createBottomTabNavigator,
   createSwitchNavigator,
+  createDrawerNavigator
 } from 'react-navigation';
 import React from 'react';
 import Home from './screens/containers/home';
@@ -57,6 +58,8 @@ const TabNavigator = createBottomTabNavigator(
   }
 )
 
+
+
 const WithModal = createStackNavigator(
   {
     Main: {
@@ -76,9 +79,47 @@ const WithModal = createStackNavigator(
   }
 )
 
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Main: {
+      screen: WithModal,
+      navigationOptions: {
+        title: 'Inicio',
+        drawerIcon: <Icon icon="🏠" />
+      }
+    },
+    Sobre: {
+      screen: About
+    },
+    Suerte: {
+      screen: Lucky
+    }
+  },
+  {
+    drawerWidth: 200,
+    drawerBackgroundColor: '#f6f6f6',
+    contentOptions: {
+      activeBackgroundColor: '#7aba2f',
+      activeTintColor: 'white',
+      inactiveTintColor: '#828282',
+      inactiveBackgroundColor: 'white',
+      itemStyle: {
+        borderBottomWidth: .5,
+        borderBottomColor: 'rgba(0,0,0,.5)'
+      },
+      labelStyle: {
+        marginHorizontal: 0,
+      },
+      iconContainerStyle: {
+        marginHorizontal: 5,
+      }
+    }
+  }
+)
+
 const SwitchNavigator = createSwitchNavigator(
   {
-    App: WithModal,
+    App: DrawerNavigator,
     Login: Login,
     Loading: Loading,
   },
